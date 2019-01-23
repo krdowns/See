@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>See</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/createentry.css" />
+    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+    <script src="scripts/main.js"></script>
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+    
+</head>
+<body>
+    <h1> CREATE AN ENTRY </h1>
+      <!-- Create the editor container -->
+    <div id="editor">
+        <p></p>
+    </div>
+    <button>SAVE</button>
+    
+    
+
+
+
+
+
+
+
+
+
+    <!-- Initialize Quill editor -->
+    <script>
+        var editor = new Quill('#editor', {
+            modules: { toolbar: [
+                    [{header: [1,2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['image']
+                ] 
+            },
+            placeholder: 'How are you doing today?',
+            theme: 'snow'
+        });
+    </script> 
+</body>
+</html>

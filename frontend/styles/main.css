@@ -1,0 +1,7 @@
+@media screen and (max-width: 425px) {    
+    body {
+        background-color: #36374F;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/modalinteraction.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="scripts/modalinteraction.js"></script>
+
+</head>
+<body>
+<div class="opaque-container">
+    <div>
+        <h1>Random Words</h1>
+        <article>
+            <p class="words-behind-filter">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi rerum perferendis explicabo suscipit esse voluptatibus quibusdam ipsam aspernatur facilis quam. Itaque totam, recusandae nobis quisquam sit ducimus harum consequuntur nesciunt?
+            </p>
+        </article>
+</div>
+</div>
+    <nav class="bottom-nav">
+        <div id="results">
+            <span id="final_span" class="final"></span>
+            <span id="interim_span" class="interim"></span>
+            <p></p>
+        </div>
+        <section class="button-container">
+            <section class="top-button-container">
+                <div id="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="60" height="60" id="microphone" data-container-transform="translate(3)" viewBox="0 0 16 20" x="0px" y="0px"><path d="M4.5 0c-1.4 0-2.5 1.1-2.5 2.5v5c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5v-5c0-1.4-1.1-2.5-2.5-2.5zm-4.125 6.188a.5.5 0 0 0-.375.5v.813c0 2.302 1.763 4.184 4 4.438v3.063h-2c-.6 0-1 .4-1 1h7c0-.6-.4-1-1-1h-2v-3.063c2.237-.254 4-2.136 4-4.438v-.813a.5.5 0 1 0-1 0v.813c0 1.927-1.573 3.5-3.5 3.5s-3.5-1.573-3.5-3.5v-.813a.5.5 0 0 0-.563-.5.5.5 0 0 0-.063 0z" transform="translate(3)"/></svg>
+                    <div id="contents"></div>
+                </div>
+            </section>
+            <section class="bottom-button-container">
+                <div id="chat-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M12 3c5.514 0 10 3.592 10 8.007 0 4.917-5.145 7.961-9.91 7.961-1.937 0-3.383-.397-4.394-.644-1 .613-1.595 1.037-4.272 1.82.535-1.373.723-2.748.602-4.265-.838-1-2.025-2.4-2.025-4.872-.001-4.415 4.485-8.007 9.999-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.738 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 1.418.345 2.775.503 4.059.503 7.084 0 11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006zm0 14h-5v-1h5v1zm5-3h-10v-1h10v1zm0-3h-10v-1h10v1z"/></svg>
+                </div>
+                <div id="ice-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 6h2v8h-2v-8zm1 12.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>
+                </div>
+            </section> 
+        </section>
+    </nav>
+
+</body>
+</html>
