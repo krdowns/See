@@ -85,5 +85,5 @@ typings/
 .dynamodb/
 
 #Video Files
-.mp4
+*.mp4
 # End of https://www.gitignore.io/api/node
