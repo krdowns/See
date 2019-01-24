@@ -7,26 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/createentry.css" />
     <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
-    <script src="scripts/main.js"></script>
+    <script src="scripts/createentry.js"></script>
     <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
     
 </head>
 <body>
     <nav>
         <ul>
-            <li>
-                <h3><a href="feed.html">Cancel</a></h3>
-            </li>
-            <li>
-                <h3><a>Done</a></h3>
-            </li>
+            <p><a href="feed.html">Cancel</a></p>
+            <p><a class="done">Done</a></p>
         </ul>
     </nav>
       <!-- Create the editor container -->
     <div id="editor">
         <p></p>
     </div>
-    <button>SAVE</button>
     
     
 
@@ -41,13 +36,8 @@
     <!-- Initialize Quill editor -->
     <script>
         var editor = new Quill('#editor', {
-            modules: { toolbar: [
-                    [{header: [1,2, false] }],
-                    ['bold', 'italic', 'underline'],
-                    ['image']
-                ] 
-            },
             placeholder: 'Type your message here',
+            modules: { toolbar: false},
             theme: 'snow'
         });
     </script> 

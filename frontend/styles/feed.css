@@ -23,7 +23,7 @@
         flex-direction: column;
         padding-left: 10px;
         background-color: white;
-        width: 90%;
+        width: 100%;
     }
 
      .video-header h3 {
@@ -45,8 +45,8 @@
     }
 
     .divider {
-        background-color: #eee;
-        height: 20px;
+        background-color: #ddd;
+        height: 2.5px;
     }
 
     .words-behind-filter {
@@ -56,6 +56,74 @@
         width: 95%;
         padding-left: 60px;
     }
+
+    .share {
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        margin-left: 5%;
+    }
+
+    .share-container {
+        width: 98%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 80px;
+        fill: #ccc;
+    }
+
+    .share-container p {
+        margin-left: 15px;
+        color: #888;
+        font-weight: 100;
+        font-size: 22px;
+    }
+
+    .camera-icon {
+        display: flex;
+        height: 100px;
+        fill: #ccc;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .photo-upload-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 2.5px;
+        padding-right: 2.5px;
+    }
+
+    .photo-grid-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #eee;
+    }
+
+    .photo-grid-left {
+        width: 49.5%;
+    }
+
+    .photo-grid-left img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .photo-grid-right {
+        width: 49.5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .photo-grid-right img {
+        width: 100%;
+        height: 49.5%;
+    }
+
 
     .divider-last {
         height: 90px;
@@ -67,7 +135,6 @@
         display: flex;
         flex-direction: row;
         background-color: #fff;
-        margin-bottom: 0px;
         bottom: 0;
         position: fixed;
         justify-content: space-between;
@@ -124,9 +191,9 @@
     .opaque-container {
         height: 100%;
         width: 100%;
-        background-color: #222;
         opacity: 0.8;
-        filter: blur(15px);
+        filter: blur(5px);
+        z-index: -1;
     }
 
     #results {
@@ -144,7 +211,7 @@
         font-family: 'Helvetica Neue', sans-serif;
         font-weight: 400;
         font-size: 19px;
-        background-color: rgba(63, 63, 78, 0.7);
+        background-color: rgba(63, 63, 78, 0.9);
     }
 
     .final-span {
@@ -234,7 +301,6 @@
         position: fixed;
         z-index: 3;
         left: 0;
-        /* top: 0; */
         bottom: 0;
         width: 100%;
         height: 100%;
@@ -243,11 +309,10 @@
     }
   
     .modal-content {
-        background-color: rgba(23, 23, 38, 0.7);
-        margin: 15% auto;
+        background-color: rgba(23, 23, 38, 0.9);
+        /* margin: 15px auto; */
         padding: 20px;
         border: 1px solid #888;
         width: 100%;
     }
-  
 }

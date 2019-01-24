@@ -108,6 +108,7 @@ $(function() {
             interim_transcript = interim_transcript + e.results[i][0].transcript;
           }
         }
+        // final_transcript variable stores results
         final_transcript = capitalize(final_transcript);
         $('#final_span').empty().html(linebreak(final_transcript));
         $('#interim_span').empty().html(linebreak(interim_transcript));
@@ -401,6 +402,7 @@ $(function() {
   window.onload = function() {
 
   var feedModal = document.getElementById('feedModal');
+  var feedBody = document.getElementById('opaqueContainer')
 
   // Get the button that opens the feedModal
   var btn = document.getElementById("feedBtn");
@@ -410,13 +412,14 @@ $(function() {
 
   // When the user clicks on the button, open the feedModal 
   btn.onclick = function() {
-  console.log('clicked')
   feedModal.style.display = "block";
+  
   }
 
   // When the user clicks on <span> (x), close the feedModal
   span.onclick = function() {
   feedModal.style.display = "none";
+ 
   }
 
   // When the user clicks anywhere outside of the feedModal, close it
