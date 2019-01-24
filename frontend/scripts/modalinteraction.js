@@ -6,10 +6,7 @@ $(function() {
       url: 'https://www.google.com/search?q=',
       firstHit: 'https://www.google.com/search?btnI&q='
     };
-    /*defaultBehavior = {
-      url: 'https://duckduckgo.com/?q=',
-      firstHit: 'https://duckduckgo.com/?q=!'
-    }*/
+
     var keywords = [{
       keyword: 'Facebook',
       url: 'https://facebook.com/search/?q='
@@ -89,29 +86,7 @@ $(function() {
       keyword: 'Stackoverflow',
       url: defaultBehavior.url + 'site:stackoverflow.com+'
     }];
-    var precursors = [
-      'on',
-      'on my',
-      'in',
-      'in my',
-      'from',
-      'from my',
-      "'",
-      "'s"
-    ];
-    var worthlessPrefixes = [
-      "what's the",
-      "what is the",
-      "find",
-      "show",
-      "i want to",
-      "let me",
-      "show me",
-      "search for",
-      "look up",
-      "look for",
-      "search"
-    ];
+
     var final_transcript = '';
     var recognizing = false;
     var cancel = false;
@@ -190,7 +165,6 @@ $(function() {
         var counter = {
             t: 0
           },
-          border = '2px solid white',
           loading = $('<div class="element"><div class="loading"></div><div class="slice"></div></div>'),
           fill = $('<div class="loading ring">')
         $('#button #contents').append(loading).append(fill);
@@ -325,18 +299,7 @@ $(function() {
       }
     }
   
-    function getThat(command, query, firstHit) {
-      var suffix = '';
-      if (command.suffix) {
-        suffix = command.suffix
-      }
-      if (firstHit) {
-        openInNewTab(defaultBehavior.firstHit + encodeURIComponent(query) + suffix);
-      } else {
-        openInNewTab(command.url + encodeURIComponent(query) + suffix);
-      }
-    }
-  
+
     function openInNewTab(url) {
       var win = window.open(url, '_blank');
       win.focus();
@@ -428,4 +391,38 @@ $(function() {
     var two_line = /\n\n/g;
     var one_line = /\n/g;
     return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
+  }
+
+
+
+
+
+  //MIC MODAL
+  window.onload = function() {
+
+  var feedModal = document.getElementById('feedModal');
+
+  // Get the button that opens the feedModal
+  var btn = document.getElementById("feedBtn");
+
+  // Get the <span> element that closes the feedModal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the feedModal 
+  btn.onclick = function() {
+  console.log('clicked')
+  feedModal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the feedModal
+  span.onclick = function() {
+  feedModal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the feedModal, close it
+  window.onclick = function(event) {
+      if (event.target == feedModal) {
+          feedModal.style.display = "none";
+      }
+    }
   }

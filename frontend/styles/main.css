@@ -4,4 +4,104 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    .login-signup-container {
+      display: flex;
+      justify-content: center;
+      /* border: 2px solid orange; */
+    }
+
+    .button-container {
+      width: 50%;
+      /* border: 2px solid blue; */
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      padding: 5px 0;
+      height: 30px;
+      font-weight: bold;
+      border: 2px solid #eee;
+      background-color: transparent;
+      color: #eee;
+      margin-bottom: 10%;
+    }
+
+
+
+    /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(63, 63, 78, 0.7); /* Fallback color */
+  }
+
+  .signup-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(63, 63, 78, 0.7);
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: rgba(63, 63, 78, 0.7);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+  .signup-modal-content {
+    background-color: rgba(63, 63, 78, 0.7);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .signup-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .signup-close:hover,
+  .signup-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer
+  }
 }
