@@ -1,0 +1,54 @@
+@media screen and (max-width: 425px) {
+    body {
+        margin: 0 auto;
+        background-color: rgba(11, 11, 38);
+        font-family: 'Helvetica Neue';
+        box-sizing: border-box; 
+    }
+    
+    h1 {
+        text-align: center;
+        font-family: 'Helvetica Neue';
+    }
+
+    nav {
+        width: 100%;
+        background-color: rgba(13, 13, 28, 0.9);
+    }
+
+    ul {
+        color: #eee;
+        font-size: 18px;
+        font-weight: 200;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        padding-inline-start: 10px;
+        padding-inline-end: 10px;
+        height: 40px;
+    }
+
+    a {
+        text-decoration: none;
+        color:inherit;
+    }
+
+    .done {
+        font-weight: 700;
+        color: #999;
+        font-size: 20px;
+    }
+
+    #editor {
+        padding-top: 1em;
+        font-family: 'Helvetica Neue';
+        background-color: #3f3f4ecc;
+        width: 99.5%;
+        color: #eee;
+        font-size: 18px;
+        
+    }
+}

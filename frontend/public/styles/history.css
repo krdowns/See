@@ -1,0 +1,167 @@
+@media screen and (max-width: 425px) {    
+    body {
+        background-color: #eeeeeecc;
+    }
+    
+    nav {
+        top: 0;
+        left: 0;
+        height: 50px;
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .left-nav li {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        color: #777;
+        font-weight: 300;
+        font-size: 20px; 
+        margin-top: -7.5px;   
+    }
+
+    .back-arrow {
+        font-weight: 600;
+        font-size: 22px;
+        margin-top: -2.5px;
+        margin-right: -5px;
+    }
+
+    .left-nav {
+        margin-left: -5%;
+    }
+
+    .right-nav {
+        width: 60%;
+    }
+
+    .right-nav li {
+        text-decoration: none;
+        list-style: none;
+        font-size: 20px;
+        font-weight: 300;
+        width: 100%;
+        text-align: center;
+        margin-left: -45px;
+        margin-top: -6px;
+        color: #555;
+    }
+
+    .dropdown-container {
+        margin-top: 70px;
+        width: 99%;
+    }
+
+    .dropbtn {
+        background: linear-gradient(#3F3F59, #202435);
+        width: 100%;
+        color: white;
+        font-family: 'Helvetica Neue', sans-serif;
+        padding: 8px;
+        font-size: 22px;
+        font-weight: 400;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+      
+    .button-contents {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .dropbtn svg:first-child{
+        fill: #F64848;
+        margin-left: 15px;
+    }
+
+    .dropbtn p {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .dropdown-arrow {
+        fill: #ccc;
+        margin-left: 10px;
+        margin-top: 7.5px;
+        font-weight: 100;
+    }
+    
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    }
+    
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba( 33, 33, 48, 0.99);
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+    color: #eee;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+    
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #cccccc}
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+    }
+
+    .chart-container {
+        margin-top: 10px;
+        width: 99%;
+        margin-left: 0.1%;
+        display: flex;
+        justify-content: center;
+        height: 200px;
+    }
+    
+    .emotional-chart {
+        width: 100%;
+    }
+
+    .previous-entry-snippet {
+        display: flex;
+        flex-direction: row;
+        padding-right: 20px;
+    }
+
+    .previous-entry-snippet p {
+        margin-left: 10px;
+    }
+    .previous-entry-snippet img {
+        width: 60px;
+        height: 60px;
+        margin-top: 15px;
+    }
+}
