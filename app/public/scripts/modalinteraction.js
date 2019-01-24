@@ -401,7 +401,7 @@ $(function() {
 
   window.onload = function() {
 
-    // ####### ACCORDION #####
+  // ####### ACCORDION #######
   var acc = document.getElementsByClassName("accordion");
   var i;
   
