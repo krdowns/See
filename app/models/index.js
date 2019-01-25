@@ -4,6 +4,6 @@ mongoose.connect('mongodb://localhost/see',
   { useNewUrlParser: true })
 
 module.export = {
-  User: require('./user'),
+  user: require('./user'),
   Entry: require('./entry')
 }

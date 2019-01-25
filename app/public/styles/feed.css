@@ -134,12 +134,15 @@
         margin-top: 30px;
         text-align: left;
         width: 90%;
+        margin-left: -5px;
+        
     }
 
     .quote h6 {
-        margin-left: 60px;
+        margin-left: 55px;
         margin-top: -5px;
         margin-bottom: 30px;
+        color: #555;
     }
 
     .news-container {
@@ -179,11 +182,13 @@
         padding-left: 20px;
         color: #888;
         font-weight: 100;
+        padding-bottom: 10px;
     }
 
     .news-container img {
         margin-top: -20px;
         height: 250px;
+        width: 100%;
         padding-left: 20px;
         padding-right: 20px;
         object-fit: contain;
@@ -224,6 +229,7 @@
         padding-right: 20px;
         width: 100%;
         margin-top: 5px;
+        margin-bottom: 15px;
     }
 
     /* Style the buttons that are used to open and close the accordion panel */
@@ -232,7 +238,7 @@
         background-color: transparent;
         cursor: pointer;
         padding: 18px;
-        margin-top: -60px;
+        margin-top: -70px;
         margin-left: 280px;
         width: 20%;
         border: none;
@@ -298,8 +304,14 @@
         padding-bottom: 20px;
     }
 
+    .last-article-image {
+        width: 100%;
+        padding-top: 30px;
+        margin-bottom: 10px;
+    }
+
     .divider-last {
-        height: 90px;
+        height: 80px;
         background-color: #fff;
         margin-bottom: 0px;
     }
