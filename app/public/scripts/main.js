@@ -49,7 +49,7 @@ window.onload = function() {
             signupModal.style.display = "none";
         }
     }
-}
+
 
 localStorage.length > 0 ? console.log(localStorage) : console.log('no local storage');
 
@@ -59,13 +59,9 @@ let user ;
 checkForLogin();
 
 $('a#logout').on('click', handleLogout);
-
 $('#login').on('click', showLogin)
-
 $('#signup').on('click', showSignup)
-
 $('#signupForm').on('submit', submitSignup)
-
 $('#loginForm').on('submit', submitLogin)
 
 
@@ -159,3 +155,4 @@ function submitLogin(e){
     console.log(e2);
   })
 }
+};

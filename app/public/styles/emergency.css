@@ -1,0 +1,54 @@
+@media screen and (max-width: 425px) {
+    body {
+        background-color: #F64848;
+        text-align: center;
+    }
+
+    #ice-button {
+        fill: white;
+        margin-top: 80px;
+    }
+
+    #close-button {
+        text-align: right;
+        margin-right: 15px;
+        margin-top: 25px;
+        fill: white;
+    }
+
+    .bottom-buttons-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .bottom-buttons-container svg {
+        fill: white;
+    }
+    
+    .ice911 {
+        margin-top: 80px;
+        width: 75%;
+        height: 60px;
+        border: none;
+        color: #F64848;
+        background: white;
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 60px;
+    }
+
+    .ice1, .ice2, .ice3 {
+        width: 100%;
+        border: none;
+        background-color: #D23D3D;
+        color: white;
+        font-size: 20px;
+        height: 60px;
+        margin-top: 20px;
+        text-align:left;
+    }
+    
+
+}

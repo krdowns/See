@@ -388,9 +388,9 @@
         text-align: right;
         width: 90%;
         border: none;
-        border-radius: 35px;
-        height: 172.5px;
-        margin-left: 25px;
+        border-radius: 5px;
+        height: 300.5px;
+        margin-left: 5%;
         margin-bottom: 315px;
         padding-top: 20px;
         padding-right: 20px;
@@ -464,6 +464,10 @@
         line-height: 50%;
         margin-right: 25px;
         text-decoration: none;
+    }
+
+    #chat-button a {
+        fill: white;
     }
 
     #ice-button {

@@ -6,40 +6,32 @@
     <title>See</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/createentry.css" />
-    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
-    <script src="scripts/createentry.js"></script>
-    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
 </head>
 <body>
     <nav>
         <ul>
-            <p><a href="feed.html">Cancel</a></p>
-            <p><a class="done">Done</a></p>
+            <p><a href="./feed">Cancel</a></p>
+            <p><a href="./history" class="add-btn">Done</a></p>
         </ul>
     </nav>
-      <!-- Create the editor container -->
-    <div id="editor">
-        <p></p>
-    </div>
-    
-    
-
-
-
-
-
-
-
-
-
-    <!-- Initialize Quill editor -->
-    <script>
-        var editor = new Quill('#editor', {
-            placeholder: 'Type your message here',
-            modules: { toolbar: false},
-            theme: 'snow'
-        });
-    </script> 
+    <section>
+        <div class="form-container">
+            <form class="form-inline" id="newEntryForm">
+                <div class="form-group entry-input">
+                    <input type="input" class="form-control titleInput" name="title" placeholder="Title">
+                </div>
+                <div class="form-group character-input">
+                    <label for="entry">What's On Your Mind?</label>
+                    <textarea type="text" class="form-control entryInput" name="entry"></textarea>
+                </div>
+                <!-- <div class="add-btn"> -->
+                    <button type="submit" id="save_entry" class="btn add-entry btn-default">Save Entry</button>
+                <!-- </div> -->
+            </form>
+        </div>
+    </section>
+    <script src="scripts/createentry.js"></script>
 </body>
 </html>

@@ -7,86 +7,6 @@ $(function() {
       firstHit: 'https://www.google.com/search?btnI&q='
     };
 
-    var keywords = [{
-      keyword: 'Facebook',
-      url: 'https://facebook.com/search/?q='
-    }, {
-      keyword: 'YouTube',
-      url: 'https://www.youtube.com/results?search_query='
-    }, {
-      keyword: 'the noun project',
-      url: 'https://thenounproject.com/search/?q='
-    }, {
-      keyword: 'HBO Go',
-      url: 'https://www.hbogo.com/#search&browseMode=browseGrid?searchTerm=',
-      suffix: '/'
-    }, {
-      keyword: 'define',
-      url: 'http://dictionary.reference.com/browse/'
-    }, {
-      keyword: ['watch', 'stream'],
-      url: 'https://www.justwatch.com/us/search?q='
-    }, {
-      keyword: 'Evernote',
-      url: 'https://www.evernote.com/Home.action?#ses=1&sh=5&sds=3&x=',
-      suffix: '&'
-    }, {
-      keyword: 'Hulu',
-      url: 'http://www.hulu.com/search?q='
-    }, {
-      keyword: 'Netflix',
-      url: 'http://www.netflix.com/search/'
-    }, {
-      keyword: 'soundcloud',
-      url: 'https://soundcloud.com/search?q='
-    }, {
-      keyword: 'rdio',
-      url: 'http://www.rdio.com/search/',
-      suffix: '/'
-    }, {
-      keyword: 'Twitter',
-      url: 'https://twitter.com/search?src=typd&q='
-    }, {
-      keyword: 'Gmail',
-      url: 'https://mail.google.com/mail/u/0/#search/'
-    }, {
-      keyword: 'Google Keep',
-      url: 'https://keep.google.com/#search/text='
-    }, {
-      keyword: 'Google Photos',
-      url: 'https://photos.google.com/search/'
-    }, {
-      keyword: 'Google Drive',
-      url: 'https://drive.google.com/drive/u/0/search?q='
-    }, {
-      keyword: 'Dropbox',
-      url: 'https://www.dropbox.com/search/personal?query_unnormalized='
-    }, {
-      keyword: 'Google',
-      url: 'https://google.com/search?q='
-    }, {
-      keyword: ['Wikipedia', 'wiki'],
-      url: 'https://en.wikipedia.org/w/index.php?search='
-    }, {
-      keyword: 'Amazon',
-      url: 'http://www.amazon.com/s/?field-keywords='
-    }, {
-      keyword: 'DuckDuckGo',
-      url: 'https://duckduckgo.com/?q='
-    }, {
-      keyword: 'Pinterest',
-      url: 'https://www.pinterest.com/search/?q='
-    }, {
-      keyword: 'ebay',
-      url: 'http://m.ebay.com/sch/i.html?_nkw='
-    }, {
-      keyword: 'imdb',
-      url: 'http://www.imdb.com/find?ref_=nv_sr_fn&s=all&q='
-    }, {
-      keyword: 'Stackoverflow',
-      url: defaultBehavior.url + 'site:stackoverflow.com+'
-    }];
-
     var final_transcript = '';
     var recognizing = false;
     var cancel = false;
@@ -118,7 +38,6 @@ $(function() {
   
     function startButton(event) {
       final_transcript = '';
-      //recognition.lang = select_dialect.value;
       recognition.start();
     }
   
@@ -232,29 +151,29 @@ $(function() {
       }
     }
   
-    function noKeyword(string) {
-      // "Go to"/"Open" command
-      if (string.indexOf('go to') == 0) {
-        string = string.substring('go to'.length + 1);
-        getThat(defaultBehavior, string.trim(), 'firstHit')
-      } else if (string.indexOf('goto') == 0) {
-        string = string.substring('goto'.length + 1);
-        getThat(defaultBehavior, string.trim(), 'firstHit')
-      } else if (string.indexOf('open') == 0) {
-        string = string.substring('open'.length + 1);
-        openInNewTab(string);
-        getThat(defaultBehavior, string.trim(), 'firstHit')
-      } else {
-        $(worthlessPrefixes).each(function() {
-          if (string.indexOf(this.toLowerCase()) == 0) {
-            string = string.substring(this.length + 1);
-            return false;
-          }
-        });
-        string = string.replace('weather like', 'weather');
-        getThat(defaultBehavior, string.trim());
-      }
-    }
+    // function noKeyword(string) {
+    //   // "Go to"/"Open" command
+    //   if (string.indexOf('go to') == 0) {
+    //     string = string.substring('go to'.length + 1);
+    //     getThat(defaultBehavior, string.trim(), 'firstHit')
+    //   } else if (string.indexOf('goto') == 0) {
+    //     string = string.substring('goto'.length + 1);
+    //     getThat(defaultBehavior, string.trim(), 'firstHit')
+    //   } else if (string.indexOf('open') == 0) {
+    //     string = string.substring('open'.length + 1);
+    //     openInNewTab(string);
+    //     getThat(defaultBehavior, string.trim(), 'firstHit')
+    //   } else {
+    //     $(worthlessPrefixes).each(function() {
+    //       if (string.indexOf(this.toLowerCase()) == 0) {
+    //         string = string.substring(this.length + 1);
+    //         return false;
+    //       }
+    //     });
+    //     string = string.replace('weather like', 'weather');
+    //     getThat(defaultBehavior, string.trim());
+    //   }
+    // }
   
     function parseString(string, keyword) {
       var found = false;
@@ -325,7 +244,7 @@ $(function() {
       }
       tip = setTimeout(function() {
         $('#tip').removeClass('show');
-      }, 10000);
+      }, 5000);
       console.log('press and hold to speak');
   
     }
@@ -337,29 +256,29 @@ $(function() {
     var frequencyData;
     var scaling = 1.5;
   
-    // function update() {
-    //     requestAnimationFrame(update);
+    function update() {
+        requestAnimationFrame(update);
   
-    //     if (recognizing) {
-    //       analyser.getByteFrequencyData(frequencyData);
-    //       TweenMax.set($('.visual'), {
-    //           autoAlpha: 0.75
-    //         })  
-    //       TweenMax.set($('#viz1'), {
-    //         scale: (((frequencyData[8] + 1) / 100) / scaling)
-    //       });
-    //       TweenMax.set($('#viz2'), {
-    //         scale: (((frequencyData[15] + 1) / 100) / scaling)
-    //       });
-    //       TweenMax.set($('#viz3'), {
-    //         scale: (((frequencyData[21] + 1) / 100) / scaling)
-    //       });
-    //     } else {
-    //       TweenMax.set($('.visual'), {
-    //         autoAlpha: 0
-    //       })
-    //     }
-    //   }
+        if (recognizing) {
+          analyser.getByteFrequencyData(frequencyData);
+          TweenMax.set($('.visual'), {
+              autoAlpha: 0.75
+            })  
+          TweenMax.set($('#viz1'), {
+            scale: (((frequencyData[8] + 1) / 100) / scaling)
+          });
+          TweenMax.set($('#viz2'), {
+            scale: (((frequencyData[15] + 1) / 100) / scaling)
+          });
+          TweenMax.set($('#viz3'), {
+            scale: (((frequencyData[21] + 1) / 100) / scaling)
+          });
+        } else {
+          TweenMax.set($('.visual'), {
+            autoAlpha: 0
+          })
+        }
+      }
       // creates an audiocontext and hooks up the audio input
     var context = new AudioContext();
     navigator.webkitGetUserMedia({

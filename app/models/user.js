@@ -9,7 +9,6 @@ const userSchema = mongoose.Schema({
     },
   password: { type: String, required: true , select: false},
   entries: [],
-
 })
 
 userSchema.set('toJSON', {
