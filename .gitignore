@@ -86,4 +86,7 @@ typings/
 
 #Video Files
 *.mp4
+
+#Secret
+app/config/config.js
 # End of https://www.gitignore.io/api/node
