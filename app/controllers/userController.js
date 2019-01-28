@@ -94,7 +94,7 @@ module.exports = {
                   // these are options, not necessary
                   {
                     // its good practice to have an expiration amount for jwt tokens.
-                    expiresIn: "1h"
+                    expiresIn: "200h"
                   },
                 );
                 console.log("NEW TOKEN: ", token)

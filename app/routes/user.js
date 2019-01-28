@@ -8,7 +8,10 @@ const
 
 
 router.post('/signup', controllers.user.signup);
+
 router.post('/login', controllers.user.login)
+
+
 router.delete('/:userId', controllers.user.delete)
   
 

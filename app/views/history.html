@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>See History</title>
+    <title>History</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/history.css" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <!-- <script src="scripts/main.js"></script> -->
+
 </head>
-<body>
+<!-- <body>
     <nav>
         <ul class="left-nav">
             <li><a href="feed.html"> <span class="back-arrow"> < </span> Back</a></li>
@@ -60,6 +63,58 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ex voluptate natus nesciunt ipsum voluptates quis, optio ipsam alias! Itaque impedit beatae esse nostrum iure voluptates aspernatur, harum sint excepturi.
             </p>
         </div>
-    </section>
+    </section> -->
+
+<style>
+    /* .container {
+        width: 100%;
+        height: 100%;
+    } */
+</style>
+<body>
+    <nav>
+        <ul class="left-nav">
+            <li><a href="./feed"> <span class="back-arrow"> < </span> Back</a></li>
+        </ul>
+        <ul class="right-nav">
+            <li>Triggers</li>
+        </ul>
+    </nav>
+    <div class="dropdown-container">
+        <div class="dropdown">
+            <button class="dropbtn">
+                <div class="button-contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 24h-2v-24h2v24zm18-16l-16-6v12l16-6z"/></svg> 
+                    <p>January</p>
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
+                </div>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">January</a>
+                <a href="#">February</a>
+                <a href="#">March</a>
+                <a href="#">April</a>
+                <a href="#">May</a>
+                <a href="#">June</a>
+                <a href="#">July</a>
+                <a href="#">August</a>
+                <a href="#">September</a>
+                <a href="#">October</a>
+                <a href="#">November</a>
+                <a href="#">December</a>
+            </div>
+        </div>
+    </div>
+    <button id="renderBtn">
+        Render
+    </button>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="scripts/history.js"></script>
+    
 </body>
 </html>

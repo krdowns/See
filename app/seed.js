@@ -2,26 +2,26 @@ const db = require("./models");
 
 
 var entry_list = [
-        {
-          title: "Struggling today",
-          content: "",
-          date:"01/03/19",
-          trigger: true
-        },
+        // {
+        //   title: "Struggling today",
+        //   content: "",
+        //   date:"01/03/19",
+        //   trigger: true
+        // },
 
-        {
-          title: "Today was better",
-          content: "",
-          date: "01/04/19",
-          trigger: false
-        },
+        // {
+        //   title: "Today was better",
+        //   content: "",
+        //   date: "01/04/19",
+        //   trigger: false
+        // },
 
-        {
-          title: "I feel alone",
-          content: "",
-          date: "1/06/19",
-          trigger: true
-        }
+        // {
+        //   title: "I feel alone",
+        //   content: "",
+        //   date: "1/06/19",
+        //   trigger: true
+        // }
         
     ];
   
@@ -30,7 +30,7 @@ var user_list = [
         {
           email: "test1@email.com",
           password: "password",
-          entries: ["Struggling today", "Today was better", "I feel alone"],
+          entries: [],
         }
     ];  
   

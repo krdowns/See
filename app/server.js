@@ -8,6 +8,7 @@ const ctrl = require('./controllers');
 const userRoutes = require('./routes/user')
 const app = express();
 
+// MIDDLEWARE //
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(bodyParser.json())
@@ -35,7 +36,7 @@ app.put('/api/entries/:id', ctrl.entry.update);
 app.delete('/api/entries/:id', ctrl.entry.delete);
 
 
-
+//  ROUTES FOR LOGIN AND SIGNUP //
 app.use('/user', userRoutes);
 
 app.get('/', (req, res) => {
@@ -92,8 +93,4 @@ function verifyToken(req, res, next) {
 }
 
 
-const port = 3000;
-
-app.listen(port, () => {
-    console.log(`Listening on Port:${port}`)
-});
+app.listen( 3000, () => console.log("Listening on Port 3000"))

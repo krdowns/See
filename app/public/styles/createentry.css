@@ -10,17 +10,18 @@
         background-repeat: no-repeat;
         padding-left: 10px;
         padding-right: 10px;
+        font-family: 'IBM Plex Sans', sans-serif;
     }
 
     h1 {
         text-align: center;
-        font-family: 'Helvetica Neue';
     }
 
     nav {
         width: 100%;
         background-color: transparent;
-        border-bottom: 1px solid #1F2334;
+        /* border-bottom: 1px solid #1F2334; */
+        margin-bottom: 20px;
     }
 
     ul {
@@ -33,8 +34,7 @@
         align-items: center;
         justify-content: space-between;
         text-align: center;
-        padding-inline-start: 10px;
-        padding-inline-end: 10px;
+        padding-inline-start: 0px;
         height: 40px;
     }
 
@@ -50,21 +50,14 @@
     }
 
     .titleInput {
-        margin-top: 20px;
-        height: 30px;
-        border: none;
-        border-bottom: 1px solid #999;
         background-color: transparent;
-        margin-bottom: 20px;
-        color: white;
-        padding-left: 10px;
-        font-size: 16px;
-        font-weight: 200;
-        width: 97%;
-    }
-
-    .titleInput:focus {
-        outline-color: lightblue;
+        border: none;
+        border-bottom: 1px solid #888;
+        padding-left: 5px;
+        width: 98.5%;
+        margin-bottom: 10px;
+        height: 30px;
+        color: #999;
     }
 
     .entryInput {
@@ -78,26 +71,27 @@
         color: white;
         font-size: 18px;
         font-weight: 200;
-        font-family: 'Helvetica Neue';
     }
 
-    .entryInput:focus {
+    .entryInput:focus, .titleInput:focus {
         outline-color: lightblue;
     }
 
     label {
+        padding-top: 20px;
         color: #999;
     }
 
     .btn {
         margin-top: 10px;
+        padding: 10px;
         width: 100%;
         background-color: transparent;
         border: 1px solid #888;
         color: #ddd;
         font-size: 20px;
         font-weight: 300;
-        height: 30px;
+        /* height: 30px; */
     }
 
     .btn:hover {

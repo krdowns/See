@@ -1,6 +1,11 @@
 @media screen and (max-width: 425px) {    
+    html {
+        height: 100%;
+    }
+    
     body {
         background-color: #eeeeeecc;
+        font-family: 'IBM Plex Sans', sans-serif;
     }
     
     nav {
@@ -66,7 +71,6 @@
         background: linear-gradient(#3F3F59, #202435);
         width: 100%;
         color: white;
-        font-family: 'Helvetica Neue', sans-serif;
         padding: 8px;
         font-size: 22px;
         font-weight: 400;
@@ -101,53 +105,47 @@
     }
     
     .dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
+        position: relative;
+        display: inline-block;
+        width: 100%;
     }
     
     .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgba( 33, 33, 48, 0.99);
-    width: 100%;
-    text-align: center;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+        display: none;
+        position: absolute;
+        background-color: rgba( 33, 33, 48, 0.99);
+        width: 100%;
+        text-align: center;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
     }
     
-    /* Links inside the dropdown */
     .dropdown-content a {
-    color: #eee;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+        color: #eee;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
     }
     
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #cccccc}
-    
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
-    display: block;
-    }
-    
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    .dropdown-content a:hover {
+        background-color: #cccccc;
+        color: #333;
     }
 
-    .chart-container {
-        margin-top: 10px;
-        width: 99%;
-        margin-left: 0.1%;
-        display: flex;
-        justify-content: center;
-        height: 200px;
+    .dropdown:hover .dropdown-content {
+        display: block;
     }
     
-    .emotional-chart {
+    .dropdown:hover .dropbtn {
+        background-color: lightblue;
+    }
+
+    .container {
+        margin-top: 10px;
         width: 100%;
+        margin-left: -2%;
+        display: flex;
+        justify-content: center;
     }
 
     .previous-entry-snippet {
