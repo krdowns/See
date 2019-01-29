@@ -1,19 +1,13 @@
 @media screen and (max-width: 425px) {    
     body {
-        background-image: linear-gradient(45deg, #1F2334, #3F3F59);
+        background-image: linear-gradient(-222deg, #3F3F59 0%, #1F2334 90%);
         size: cover;
-        height: 100vh;
+        height: 812px;
+        width: 375.2px;
+        margin-left: 0%;
+        overflow: hidden;
         background-repeat: no-repeat;
-        padding-left: 10px;
-        padding-right: 10px;
         font-family: 'IBM Plex Sans', sans-serif;
-    }
-
-    .index-nav {
-        display: flex;
-        flex-direction: row;
-        background-color: transparent;
-        width: 100%;
     }
 
     #access {
@@ -23,60 +17,84 @@
 
     a {
         text-decoration: none;
-        color: white;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 600;
     }
 
-    h2 {
-        font-weight: 200;
+    .logo-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        margin-top: 14.8%;
+        margin-bottom: 6.5%;
+    }
+
+    input {
+        width: 311px;
+        opacity: 0.75;
+        background: rgba(255,255,255,0.15);
+        font-weight: 500;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        height: 56px;
+        padding-left: 4.3%;
+        margin-top: 20px;
     }
     
-    form {
-        width: 30%;
-        line-height: 1.68em;
-        text-align: center;
-        padding: 2em;
-        background-color: rgba( 33, 33, 45, 0.6);
-        border-radius: 5px;
-        color: white;
-    }
 
-    #loginForm {
-      width: 80%;
-      margin-top: 40%;  
-    }
-
-    #loginForm p, #signupForm p {
-        margin-top: 40px;
-    }
-
-    #loginForm input, #signupForm input {
-        width: 80%;
+    .login-button {
+        margin-top: 20px;
         background-color: transparent;
-        border: 2px solid white;
-        color: white;
-        font-weight: 200;
-        font-size: 18px;
-        height: 30px;
-        margin-top: 5px;
+        border: 2px solid rgba(255,255,255, 0.1); 
+        color: rgba(255, 255, 255, 0.1);
+        font-size: 20px;
+        text-align: center;
+        font-family: 'IBM Plex Sans', sans-serif;
+        opacity: 0.75;
     }
 
     #loginEmail, #loginPassword, #signupEmail, #signupPassword {
-        padding-left:5px;
+        padding-left: 15px;
+        font-weight: 600;
+        font-family: 'IBM Plex Sans', sans-serif;
     }
 
-    #loginPassword, #signupPassword {
-        margin-bottom: 20px;
+    #loginForm {
+        width: 100%;
     }
 
-    ::placeholder {
-        color: white;
+    #loginForm div {
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     #signupForm {
         width: 80%;
         margin-top: 10%;
     }
+
+    .login-subheader {
+        width: 100%;
+        margin-left: -2%;
+        text-align: center;
+    }
+
+    .forgot {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.3);
+    }
         
+    .no-account {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.3);
+    }
+
     .show-on-click {
         display: none;
     }

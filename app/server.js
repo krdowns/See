@@ -52,9 +52,9 @@ app.post('/verify', verifyToken, (req, res) => {
 
 // SAMPLE PROTECTED ROUTE!
 // protected route - a route only a user with a jwt token in their header can access.
-app.post('/protectedPage', verifyToken, (req, res) => {
+app.post('/feed', verifyToken, (req, res) => {
   console.log(req.token)
-  jwt.verify(req.token, 'waffles', (err, authData) => {
+  jwt.verify(req.token, 'debbie', (err, authData) => {
     if(err) {
       res.sendStatus(403);
     } else {

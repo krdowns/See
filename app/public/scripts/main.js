@@ -124,12 +124,11 @@ window.onload = function() {
       },
       success: function signupSuccess(json) {
         console.log(json);
-        user = {email: json.result.email, _id: json.result._id}
+        // user = {email: json.result.email, _id: json.result._id}
         localStorage.token = json.signedJwt;
         $('#signupForm').toggleClass('show');
         $('#noToken').toggleClass('show');
         checkForLogin();
-
       }
 
     })

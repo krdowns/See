@@ -6,7 +6,8 @@ $('#save_entry').on('click', function (e) {
     var elements = $('#newEntryForm')[0].elements
     var title = elements[0].value
     var content = elements[1].value
-    console.log(title,content)
+    var trigger = elements[3].value
+    console.log(title,content,trigger)
   $.ajax({
     url: '/api/entries',
     method: 'POST',
@@ -23,7 +24,7 @@ $('#save_entry').on('click', function (e) {
     });  
 });
 
-////GET ALL ENTRIES AND APPEND TO PAGE////
+//GET ALL ENTRIES AND APPEND TO PAGE////
   var entryUrl = `/api/entries`
 
   $.ajax({
@@ -60,26 +61,26 @@ $('#save_entry').on('click', function (e) {
 
 // DELETE ENTRIES //
 
-  $('#entry').on('click', '.deleteEntry', function(e){
-    e.preventDefault();
+//   $('#entry').on('click', '.deleteEntry', function(e){
+//     e.preventDefault();
 
-    entryId = $('#deleteEntry').data().id
-    console.log(entryId)
-    var entriesUrl = `/api/entries/${entryId}`
-    console.log(entriesUrl)
+//     entryId = $('#deleteEntry').data().id
+//     console.log(entryId)
+//     var entriesUrl = `/api/entries/${entryId}`
+//     console.log(entriesUrl)
 
-    $.ajax({
-        method: 'DELETE',
-        url: entriesUrl,
-        success: onSuccess,
-        error: onError,
-    });
-        function onError ( err ) {
-            console.log( err );
-        }
-        function onSuccess (entry) {
-        console.log(`Entry Deleted:`, entry)
-        $('#entry').addClass('hidden')
-        alert('Your entry was deleted')
-        }
-    })
+//     $.ajax({
+//         method: 'DELETE',
+//         url: entriesUrl,
+//         success: onSuccess,
+//         error: onError,
+//     });
+//         function onError ( err ) {
+//             console.log( err );
+//         }
+//         function onSuccess (entry) {
+//         console.log(`Entry Deleted:`, entry)
+//         $('#entry').addClass('hidden')
+//         alert('Your entry was deleted')
+//         }
+//     })

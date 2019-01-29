@@ -1,12 +1,12 @@
 @media screen and (max-width: 425px) {
     html {
-        height: 100%;
+        height: 100vh;
     }
 
     body {
-        background-image: linear-gradient(45deg, #1F2334, #3f3f4e);
+        background-image: linear-gradient(45deg, #1F2334, #3F3F59);
         size: cover;
-        height: 100vh;
+        height: 100%;
         background-repeat: no-repeat;
         padding-left: 10px;
         padding-right: 10px;
@@ -20,7 +20,6 @@
     nav {
         width: 100%;
         background-color: transparent;
-        /* border-bottom: 1px solid #1F2334; */
         margin-bottom: 20px;
     }
 
@@ -53,7 +52,6 @@
         background-color: transparent;
         border: none;
         border-bottom: 1px solid #888;
-        padding-left: 5px;
         width: 98.5%;
         margin-bottom: 10px;
         height: 30px;
@@ -91,10 +89,20 @@
         color: #ddd;
         font-size: 20px;
         font-weight: 300;
-        /* height: 30px; */
     }
 
     .btn:hover {
         border-color: lightblue;
+    }
+
+    .trigger-button {
+        display: flex;
+        flex-direction: row;
+        color: white;
+    }
+
+    .trigger-button input {
+        margin-top: 22.5px;
+        margin-right: 5px;
     }
 }

@@ -1,10 +1,14 @@
 @media screen and (max-width: 425px) {    
+    * {
+        font-family: 'IBM Plex Sans', sans-serif;
+    }
+    
     html {
         height: 100%;
     }
     
     body {
-        background-color: #eeeeeecc;
+        background-color: #f8f8f8;
         font-family: 'IBM Plex Sans', sans-serif;
     }
     
@@ -64,16 +68,20 @@
 
     .dropdown-container {
         margin-top: 60px;
-        width: 99%;
+        width: 100%;
+        height: 47px;
+        display: flex;
+        justify-content: center;
     }
 
     .dropbtn {
         background: linear-gradient(#3F3F59, #202435);
         width: 100%;
+        height: 47px;
         color: white;
         padding: 8px;
-        font-size: 22px;
-        font-weight: 400;
+        font-size: 16px;
+        font-weight: 500;
         border: none;
         cursor: pointer;
         display: flex;
@@ -88,20 +96,20 @@
 
     .dropbtn svg:first-child{
         fill: #F64848;
-        margin-left: 15px;
+        margin-left: 25px;
     }
 
     .dropbtn p {
         margin-top: 0px;
         margin-bottom: 10px;
         margin-left: 10px;
+        text-align: center;
     }
 
     .dropdown-arrow {
         fill: #ccc;
-        margin-left: 10px;
-        margin-top: 7.5px;
-        font-weight: 100;
+        margin-left:10px;
+        margin-top: 6px;
     }
     
     .dropdown {
@@ -143,23 +151,106 @@
     .container {
         margin-top: 10px;
         width: 100%;
-        margin-left: -2%;
+        margin-left:0;
         display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #FFFFFF;
+
+    }
+
+    .chart-row {
+        display: flex;
+        flex-direction: row;
+        width: 98%;
+    }
+
+    .chart-row p {
+        opacity: 0.65;
+        transform: rotate(-90deg);
+        font-size: 9px;
+        color: #1F2334;
+        letter-spacing: 0;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .container p {
+        width: 100%;
+        opacity: 0.65;
+        text-align: center;
+        color: #1F2334;
+        margin-top: -1%;
+    }
+
+
+    /* RECENT POSTS */
+
+    .recent-entry-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 14.6px;
+        background-color: #FFFFFF;
+    }
+
+    #single-entry-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-height: 68px;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+
+    #entry-target {
+        text-align: left;
+    }
+    
+
+    /* .recent-entry-date {
+        width: 97.8px;
+        height: 72px;
+        font-weight: 600;
+        color: blue;
+        margin-right: 3%;
+        background-color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
         justify-content: center;
     }
 
-    .previous-entry-snippet {
+    .recent-entry {
+        max-width: 100%;
         display: flex;
+        text-align: left;
         flex-direction: row;
-        padding-right: 20px;
+        max-height: 72px;
+        padding-left: 12px;
+        padding-right: 12px;
+        background-color: #FFFFFF;
+        font-size: 16px;
+        color: #838384;
+        letter-spacing: 0;
     }
 
-    .previous-entry-snippet p {
-        margin-left: 10px;
+    #date-target {
+        font-size: 30px;
+        color: #1F2334;
+        letter-spacing: 0;
+        text-align: center;
     }
-    .previous-entry-snippet img {
-        width: 60px;
-        height: 60px;
-        margin-top: 15px;
+
+    .day {
+        margin-top: -5px;
+    }
+ */
+
+    .recent-entry svg {
+        margin-top: 16.6%;
     }
 }
