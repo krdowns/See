@@ -45,7 +45,12 @@
         padding-left: 4.3%;
         margin-top: 20px;
     }
-    
+
+    input:focus {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 1);
+        border: 1px solid white;
+    }
 
     .login-button {
         margin-top: 20px;
@@ -56,6 +61,11 @@
         text-align: center;
         font-family: 'IBM Plex Sans', sans-serif;
         opacity: 0.75;
+    }
+
+    .login-button:active {
+        background-color: #FFFFFF;
+        color: #1F2334;;
     }
 
     #loginEmail, #loginPassword, #signupEmail, #signupPassword {

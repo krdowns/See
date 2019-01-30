@@ -1,54 +1,48 @@
 window.onload = function renderChart(data, labels) {
-    var dates=[];
-    var emotions=[];
+    let toneObject = {};
 
     $.ajax({
         url: './api/entries',
         dataType: 'json'
     }).done(function(data) {
-        data.data.forEach(function(singleData) {
-            dates.push(singleData.date);
-            emotions.push(singleData.watson.document_tone.tones[0].tone_name);
+        data.data.forEach(function(singleEntry) {
+            singleEntry.watson.document_tone.tones.forEach(function(singleEmotion) {
+                if (toneObject[singleEmotion.tone_name]!==undefined ) {
+                    toneObject[singleEmotion.tone_name]+= singleEmotion.score
+                } else {
+                    toneObject[singleEmotion.tone_name]= singleEmotion.score
+                }
+            })
         });
-        // console.log(dates,emotions)
-        myChart.update();
-    });
 
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["0", "10", "20", "30"],
-            datasets: [{
-                label: 'Recent Triggers',
-                data: [dates],
-                borderColor: 'rgba(255, 192, 192, 1)',
-                backgroundColor: 'rgba(255, 192, 192, 0.2)',
-            }]
-        },
-        options: {            
-            scales: {
-                xAxes: [{
-                    gridLines: {
-                        display:false
-                    }
-                }],
-                yAxes: [{
-                    gridLines: {
-                        display:false
-                    },
-                    ticks: { 
-                        beginAtZero: true,
-                        max: 10,
-                        stepSize: 5,
-                    }
-                }]
+        
+        console.log(toneObject);
+        new Chart(myChart, {
+            type: "pie",
+            data: {
+               labels: [
+               "Analytical", "Anger", "Confident", "Joy", "Sadness", "Tentative"
+               ],
+               datasets: [{
+                  data: [toneObject.Analytical, toneObject.Anger, toneObject.Confident, toneObject.Joy, toneObject.Sadness, toneObject.Tentative],
+                  backgroundColor: ["#bfb6a7", "#a91834", "Green", "#FFA500", "#405074", "#e3d611"]
+               }]
+            },
+            options: {
+               responsive: true,
+               legend: {
+                  position: "right",
+                  labels: {
+                     usePointStyle: true
+                  }
+               }
             }
-        }
+         });
+    
+    
+    
     });
-}
-
-
+    
 // DROPDOWN //
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -57,10 +51,10 @@ function myFunction() {
 
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
+      let dropdowns = document.getElementsByClassName("dropdown-content");
+      let i;
       for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
+        let openDropdown = dropdowns[i];
         if (openDropdown.classList.contains('show')) {
           openDropdown.classList.remove('show');
         }
@@ -83,26 +77,19 @@ function myFunction() {
             let day=moment(singleEntry.date).format('DD');
                 $('#recent-entry-container').append(`
                 <div id="single-entry-row">
-                    <div class="recent-entry-date>
-                        <h1 id="date-target" class="month">
-                        ${month}
-                        </h1>
+                    <div class="recent-entry-date">
                         <p class="day">
                         ${day}
                         </p>
+                        <h1 id="date-target" class="month">
+                        ${month}
+                        </h1>
                     </div>
-                    <div class="recent-entry>
+                    <div class="recent-entry">
                         <p id="entry-target">
-                        ${singleEntry.content}
+                        "${singleEntry.content}"
                         </p>
-                        <?xml version="1.0" encoding="UTF-8"?>
-                        <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>Icons / Toggle / Default / dark</title>
-                            <desc>Created with Sketch.</desc>
-                            <g id="Icons-/-Toggle-/-Default-/-dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <path d="M12,12 L16,12 L16,10 L12,10 L12,6 L10,6 L10,10 L6,10 L6,12 L10,12 L10,16 L12,16 L12,12 Z M11,0 C17.074,0 22,4.925 22,11 C22,17.075 17.074,22 11,22 C4.926,22 0,17.075 0,11 C0,4.925 4.926,0 11,0 Z" id="Combined-Shape" fill="#1F2334" fill-rule="nonzero"></path>
-                            </g>
-                        </svg>
+
                     </div>
                 </div>
                 `)
@@ -113,4 +100,4 @@ function myFunction() {
         console.log('error', e);
         $('.recent-entry-date').text('Failed to load.');
     }
-
+}

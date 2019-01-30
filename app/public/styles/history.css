@@ -8,7 +8,7 @@
     }
     
     body {
-        background-color: #f8f8f8;
+        background-color: #d8d8d8;
         font-family: 'IBM Plex Sans', sans-serif;
     }
     
@@ -149,6 +149,7 @@
     }
 
     .container {
+        padding-top: 20px;
         margin-top: 10px;
         width: 100%;
         margin-left:0;
@@ -181,8 +182,9 @@
         opacity: 0.65;
         text-align: center;
         color: #1F2334;
-        margin-top: -1%;
+        margin-top: 5%;
     }
+    
 
 
     /* RECENT POSTS */
@@ -194,7 +196,7 @@
         width: 100%;
         justify-content: space-between;
         margin-top: 14.6px;
-        background-color: #FFFFFF;
+        background-color: #d8d8d8;
     }
 
     #single-entry-row {
@@ -206,16 +208,10 @@
         margin-bottom: 12px;
     }
 
-    #entry-target {
-        text-align: left;
-    }
-    
-
-    /* .recent-entry-date {
-        width: 97.8px;
+    .recent-entry-date {
+        width: 84.8px;
         height: 72px;
         font-weight: 600;
-        color: blue;
         margin-right: 3%;
         background-color: #FFFFFF;
         display: flex;
@@ -224,33 +220,50 @@
         justify-content: center;
     }
 
-    .recent-entry {
-        max-width: 100%;
-        display: flex;
-        text-align: left;
-        flex-direction: row;
-        max-height: 72px;
-        padding-left: 12px;
-        padding-right: 12px;
-        background-color: #FFFFFF;
-        font-size: 16px;
-        color: #838384;
-        letter-spacing: 0;
-    }
-
     #date-target {
-        font-size: 30px;
+        width: 84.8px;
+        font-size: 16px;
         color: #1F2334;
         letter-spacing: 0;
         text-align: center;
     }
 
     .day {
-        margin-top: -5px;
+        margin-top: 8.4%;
+        margin-bottom: -12px;
+        font-size: 16px;
+        color: #1F2334;
     }
- */
+
+    .month {
+        letter-spacing: 0;
+        color: #000000;
+        opacity: 0.4;
+    }
+
+    .recent-entry {
+        max-width: 100%;
+        display: flex;
+        text-align: left;
+        flex-direction: row;
+        height: 72px;
+        padding-left: 12px;
+        padding-right: 12px;
+        background-color: #FFFFFF;
+        color: #838384;
+        letter-spacing: 0;
+    }
+
+    #entry-target {
+        margin-top: 12px;
+        text-align: left;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     .recent-entry svg {
-        margin-top: 16.6%;
+        margin-top: 15.6%;
+        z-index: 2;
     }
 }
