@@ -7,8 +7,8 @@ const userSchema = mongoose.Schema({
     unique: true, 
     match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ ,
     },
-  password: { type: String, required: true , select: false}
-
+  password: { type: String, required: true , select: false},
+  emergencycontacts: [{type: mongoose.Schema.Types.ObjectId, ref: "EmergencyContact"}]
 })
 
 userSchema.set('toJSON', {

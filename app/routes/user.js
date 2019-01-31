@@ -1,20 +1,15 @@
 const 
   express = require('express'),
   router = express.Router(),
-  bcrypt = require('bcrypt'),
-  db = require('../models'),
-  jwt = require('jsonwebtoken'),
   controllers = require('../controllers')
 
-
-router.post('/signup', controllers.user.signup);
-
+router.get('/', controllers.user.read)
+router.post('/signup', controllers.user.signup)
 router.post('/login', controllers.user.login)
-
-
 router.delete('/:userId', controllers.user.delete)
-  
-
+router.get('/:userId', controllers.user.readOne)
+router.get('/:userId/entries', controllers.user.entries)
+router.get('/history/:userId', controllers.user.getUserHistory)
 
 
 module.exports = router;

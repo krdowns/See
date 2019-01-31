@@ -1,8 +1,8 @@
 window.onload = function renderChart(data, labels) {
     let toneObject = {};
-
+    
     $.ajax({
-        url: './api/entries',
+        url: '/user/'+localStorage.userID+'/entries',
         dataType: 'json'
     }).done(function(data) {
         data.data.forEach(function(singleEntry) {
@@ -15,17 +15,15 @@ window.onload = function renderChart(data, labels) {
             })
         });
 
-        
-        console.log(toneObject);
         new Chart(myChart, {
-            type: "pie",
+            type: "doughnut",
             data: {
                labels: [
                "Analytical", "Anger", "Confident", "Joy", "Sadness", "Tentative"
                ],
                datasets: [{
                   data: [toneObject.Analytical, toneObject.Anger, toneObject.Confident, toneObject.Joy, toneObject.Sadness, toneObject.Tentative],
-                  backgroundColor: ["#bfb6a7", "#a91834", "Green", "#FFA500", "#405074", "#e3d611"]
+                  backgroundColor: ["Indigo", "#a91834", "Green", "Orange", "#405074", "Gray "]
                }]
             },
             options: {
@@ -33,39 +31,37 @@ window.onload = function renderChart(data, labels) {
                legend: {
                   position: "right",
                   labels: {
+                     fontSize: 12,
                      usePointStyle: true
                   }
                }
             }
          });
-    
-    
-    
     });
     
-// DROPDOWN //
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      let dropdowns = document.getElementsByClassName("dropdown-content");
-      let i;
-      for (i = 0; i < dropdowns.length; i++) {
-        let openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
+    // DROPDOWN //
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
     }
-  }
+    
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        let i;
+        for (i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        }
+        }
+    }
 
 //   GET ALL ENTRIES
     $.ajax({
         method: 'GET',
-        url: "/" + 'api/entries',
+        url: '/user/'+localStorage.userID+'/entries',
         success: handleSuccess,
         error: handleError
     });
@@ -100,4 +96,32 @@ function myFunction() {
         console.log('error', e);
         $('.recent-entry-date').text('Failed to load.');
     }
+
+    // DELETE ENTRIES //
+
+    $('#entry').on('click', '.deleteEntry', function (e) {
+        e.preventDefault();
+
+        entryId = $('#deleteEntry').data().id
+        console.log(entryId)
+        var entriesUrl = `/api/entries/${entryId}`
+        console.log(entriesUrl)
+
+        $.ajax({
+            method: 'DELETE',
+            url: entriesUrl,
+            success: onSuccess,
+            error: onError,
+        });
+
+        function onError(err) {
+            console.log(err);
+        }
+
+        function onSuccess(entry) {
+            console.log(`Entry Deleted:`, entry)
+            $('#entry').addClass('hidden')
+            alert('Your entry was deleted')
+        }
+    })
 }

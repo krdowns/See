@@ -8,17 +8,7 @@
         overflow: hidden;
         background-repeat: no-repeat;
         font-family: 'IBM Plex Sans', sans-serif;
-    }
-
-    #access {
-        display: flex;
-        flex-direction: row;
-    }
-
-    a {
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.4);
-        font-weight: 600;
+        box-sizing: border-box;
     }
 
     .logo-container {
@@ -42,7 +32,7 @@
         border-radius: 5px;
         font-size: 20px;
         height: 56px;
-        padding-left: 4.3%;
+        /* padding-left: 4.3%; */
         margin-top: 20px;
     }
 
@@ -52,8 +42,9 @@
         border: 1px solid white;
     }
 
-    .login-button {
+    #signup-button {
         margin-top: 20px;
+        width: 326px;
         background-color: transparent;
         border: 2px solid rgba(255,255,255, 0.1); 
         color: rgba(255, 255, 255, 0.1);
@@ -61,53 +52,27 @@
         text-align: center;
         font-family: 'IBM Plex Sans', sans-serif;
         opacity: 0.75;
+        margin-left: 6.5%;
     }
 
-    .login-button:active {
+    #signup-button:active {
         background-color: #FFFFFF;
         color: #1F2334;;
     }
 
-    #loginEmail, #loginPassword, #signupEmail, #signupPassword, #emergencyContacts {
+    #signupEmail, #signupPassword, #emergencyContact1, #emergencyContact2, #emergencyContact3 {
         padding-left: 15px;
         font-weight: 600;
         font-family: 'IBM Plex Sans', sans-serif;
-    }
-
-    #loginForm {
-        width: 100%;
-    }
-
-    #loginForm div {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+        margin-left: 6.5%;
     }
 
     #signupForm {
         width: 100%;
-        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .login-subheader {
-        width: 100%;
-        margin-left: -2%;
-        text-align: center;
-    }
-
-    .forgot {
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.3);
-    }
-        
-    .no-account {
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.3);
-    }
-
-    .show-on-click {
-        display: none;
-    }
-  
 
 }

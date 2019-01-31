@@ -1,12 +1,12 @@
 const signupSuccess = (json) => {
-    console.log(json)
+    // console.log(json)
     let tokenJson = {token: json.token, user: json.result[0]}
     console.log(tokenJson)
     saveStuff(tokenJson) 
   }
   
   const loginSuccess = (json) => {
-    console.log(json);
+    // console.log(json);
   }
   
   
@@ -27,7 +27,7 @@ const signupSuccess = (json) => {
   
   // Store your data.
   function saveStuff(obj) {
-    console.log("OBJ: ", obj)
+    // console.log("OBJ: ", obj)
     saveData.obj = obj;
     // saveData.foo = foo;
     saveData.time = new Date().getTime();

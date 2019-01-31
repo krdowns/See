@@ -4,6 +4,34 @@ const
   jwt = require('jsonwebtoken')
 
 module.exports = {
+
+    read: (req, res) => {
+      console.log(req.params)
+      db.User.find()
+      .exec(function(err, Found){
+          if(err) return console.log(err);
+          res.json({'data': Found});
+      })
+    },
+
+    readOne: (req, res) => {
+      console.log(req.params)
+      db.User.find({_id: req.params.userId})
+      .exec(function(err, Found){
+          if(err) return console.log(err);
+          res.json({'data': Found});
+      })
+    },
+    
+    entries: (req, res) => {
+      console.log(req.params)
+      db.Entry.find({author: req.params.userId})
+      .exec(function(err, foundEntries){
+          if(err) return console.log(err);
+          res.json({'data': foundEntries});
+      })
+    },
+
     signup : (req, res) => {
         console.log(req.body);
         // Check to see if email is already in db
@@ -28,21 +56,22 @@ module.exports = {
                   // we are creating a User object with their email address and OUR hashed password
                   db.User.create({
                     email: req.body.email,
-                    password: hash
+                    password: hash,
+                    emergencyContacts: [req.body.tel] 
                   }, {password: 0}, (err, result) => {
                       
                     // if(err){ return res.status(500).json({err})}
                     // we send our new data back to user or whatever you want to do.
-                  jwt.sign(
+                  let token = jwt.sign(
                       {result},
                       "debbie",
-                      (err, signedJwt) => {
-                      res.status(200).json({
-                        message: 'User Created',
-                        result,
-                        signedJwt
-                      })
-                    });
+                      )
+                        res.status(200).json({
+                          message: 'User Created',
+                          result,
+                          token
+                        })
+                      
                     // send success back to user, along with a token.
                   })
                 }
@@ -93,7 +122,7 @@ module.exports = {
                   // these are options, not necessary
                   {
                     // its good practice to have an expiration amount for jwt tokens.
-                    expiresIn: "200h"
+                    expiresIn: "1h"
                   },
                 );
                 console.log("NEW TOKEN: ", token)
@@ -125,5 +154,27 @@ module.exports = {
           if(err){return res.status(500).json({err})}
           res.status(200).json({result})
         })
+      },
+
+      getUserHistory: (req, res) => {
+        db.User.findById(req.params.userId, (err, user) => {
+          if(err){
+            return res.status(500).json({err})
+          }
+          db.Entry.find({})
+          .populate(
+              {
+                  path: 'author',
+                  match: {_id: user._id}
+              }
+          )
+          .exec((err, entries) => {
+              if(err) return console.log(err);
+              console.log(entries);
+              entries = entries.filter((entry) => entry.author)
+              res.render('/history', {currentUser: user, entries: entries});
+          })
+        })
+        
       }
 }

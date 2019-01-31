@@ -12,7 +12,7 @@ module.exports = {
     read: (req, res) => {
         db.Entry.find({})
         .populate('entry')
-        .populate('user')
+        .populate('author')
         .exec(function(err, allEntries){
             if(err) return console.log(err);
             res.json({'data': allEntries});
@@ -21,7 +21,6 @@ module.exports = {
 
     create: (req, res) => {
         let post = req.body
-        let title = post.title
         let text = post.content
 
         var toneParams = {
@@ -62,6 +61,23 @@ module.exports = {
                 return console.log(err);
             }
             res.json(deletedEntry);
+        })
+    },
+
+    
+    filter: (req, res) => {
+        entry.find({})
+        .populate(
+            {
+                path: 'author',
+                match: {_id: req.params.userId}
+            }
+        )
+        .exec((err, entries) => {
+            if(err) return console.log(err);
+            console.log(entries);
+            entries = entries.filter((entry) => entry.author)
+            res.json(entries);
         })
     }
 }

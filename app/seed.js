@@ -27,11 +27,11 @@ var entry_list = [
   
   
 var user_list = [
-        {
-          email: "test1@email.com",
-          password: "password",
-          entries: [],
-        }
+        // {
+        //   email: "test1@email.com",
+        //   password: "password",
+        //   entries: [],
+        // }
     ];  
   
 // SEED ENTRIES

@@ -12,6 +12,7 @@
         filter: blur(5px);
     }
 
+
     .words-behind-filter {
         text-align: right;
         color: white;
@@ -30,6 +31,15 @@
         bottom: 0;
         width: 99%;
         left: 0;
+    }
+
+    .mood-tracker-container {
+        width: 100%;
+        border: 2px solid blue;
+        display: flex;
+        flex-direction: column;
+        color: rgba(255, 255, 255, 0.4);
+        justify-content: center;
     }
 
     .top-button-container {

@@ -243,23 +243,30 @@
 
     .recent-entry {
         max-width: 100%;
+        min-width: 100%;
         display: flex;
         text-align: left;
         flex-direction: row;
         height: 72px;
         padding-left: 12px;
-        padding-right: 12px;
+        padding-right: 48px;
         background-color: #FFFFFF;
-        color: #838384;
+        color: #888888;
         letter-spacing: 0;
     }
 
     #entry-target {
         margin-top: 12px;
+        margin-right: 105px;
         text-align: left;
         white-space: wrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        padding-right: 20px;
+    }
+
+    #entry-target p {
+        max-width: 90%;
     }
 
     .recent-entry svg {
