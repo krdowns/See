@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="shortcut icon" href="#">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Your Profile</title>
@@ -8,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="styles/settings.css" />
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts/main.js"></script>
+    
 </head>
 <body>
     <nav>
@@ -23,10 +24,21 @@
     <div class="profile-header">
         <img class="profile-pic" src="./images/profile-pic.jpg" alt="profile picture">
         <div class="profile-container">
-            <form>
-                <input type="tel" id="phone">
-            </form>
         </div>
     </div>
+    <h1>Your Contacts</h1>
+    
+    <div class="current-contacts-container">
+    </div>
+
+    <h1>Create Contacts</h1>
+    <form id="newContactForm">
+        <div class="contact-container">
+            <input type="email" id="emailContactEmail" name="email" placeholder="Contact Email Address"/>
+        </div>
+        <input id="save-contacts" type="submit" name="submit" value="Save Changes"/>
+    </form>
+
+    <script src="scripts/settings.js"></script>
 </body>
 </html>

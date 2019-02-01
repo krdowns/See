@@ -1,7 +1,3 @@
-
-
-// ################### CRUD FUNCTIONALITY ######################//
-
 /// CREATE FORM ///
 $('#save_entry').on('click', function (e) {
     e.preventDefault();
@@ -18,6 +14,7 @@ $('#save_entry').on('click', function (e) {
             author
         },
         success: function (res) {
+            return res.redirect('/history')
         },
 
         error: function (err) {

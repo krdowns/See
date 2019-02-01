@@ -1,6 +1,4 @@
-
 const express = require('express');
-const mongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const watson = require('watson-developer-cloud');
 const passport = require('passport');
@@ -8,6 +6,7 @@ const ctrl = require('./controllers');
 const userRoutes = require('./routes/user');
 const jwt = require('jsonwebtoken')
 const app = express();
+const db = require('./models');
 
 // MIDDLEWARE //
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,17 +28,50 @@ app.use(express.static(__dirname + '/public'));
 
 //Create
 app.post('/api/entries', ctrl.entry.create);
-
+app.post('/api/contacts', ctrl.contact.create);
 
 //Read
 app.get('/api/entries', ctrl.entry.read);
-// app.get('/user/:id', ctrl.user.readOne)
+app.get('/api/contacts', ctrl.contact.read);
 
 //Update
 app.put('/api/entries/:id', ctrl.entry.update);
+// app.put('/api/contacts/:id', (req,res)=> {
+//     if (req.jwt.userInfo!==undefined) {
+//       db.Contact.findOneAndUpdate(
+//         {'_id': req.jwt.userId},
+//         {'$set': req.body},
+//         {upsert: true},
+//       )
+//     } else {
+//       res.status(console.log(err))
+//     }
+// })
+
+app.put('/contacts/:id', function(req, res, next){
+  Contact.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
+    Contact.findOne({_id:req.params.id}).then(function(contact){
+      res.send(contact);
+    });
+  }).catch(next);
+  // res.send({type:'PUT'});
+});
 
 //Delete
 app.delete('/api/entries/:id', ctrl.entry.delete);
+app.delete('/contacts/:id', (req, res) => {
+  let contactId = req.params.id;
+
+  db.Contact.deleteOne({
+      _id: contactId
+    },
+    (err, deletedId) => {
+      if (err) {
+        return console.log(err)
+      };
+      res.json(deletedId);
+    });
+});
 
 //Filter
 app.get('/api/entries/:userId', ctrl.entry.filter);
@@ -50,6 +82,8 @@ app.get('/api/entries/:userId', ctrl.entry.filter);
 //  ROUTES  //
 app.use('/user', userRoutes);
 // app.ust('/entry', entryRoutes);
+
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
@@ -64,8 +98,7 @@ app.post('/verify', verifyToken, (req, res) => {
 
 // SAMPLE PROTECTED ROUTE!
 // protected route - a route only a user with a jwt token in their header can access.
-app.post('/feed', verifyToken, (req, res) => {
-  console.log(req.token)
+app.post('/settings', verifyToken, (req, res) => {
   jwt.verify(req.token, 'debbie', (err, authData) => {
     if(err) {
       res.sendStatus(403);
@@ -88,7 +121,6 @@ function verifyToken(req, res, next) {
   // Get auth header value
   // when we send our token, we want to send it in our header
   const bearerHeader = req.headers['authorization'];
-  console.log(bearerHeader)
   // Check if bearer is undefined
   if(typeof bearerHeader !== 'undefined'){
     const bearer = bearerHeader.split(' ');
