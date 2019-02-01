@@ -1,4 +1,5 @@
 const db = require('../models');
+require('dotenv').config();
 
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 

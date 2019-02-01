@@ -7,6 +7,7 @@ const userRoutes = require('./routes/user');
 const jwt = require('jsonwebtoken')
 const app = express();
 const db = require('./models');
+require('dotenv').config();
 
 // MIDDLEWARE //
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -64,7 +65,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/verify', verifyToken, (req, res) => {
-  let verified= jwt.verify(req.token, 'debbie')
+  let verified= jwt.verify(req.token, process.env.JWTSECRET)
   console.log("verified: ", verified)
   res.json(verified)
 })
@@ -73,7 +74,7 @@ app.post('/verify', verifyToken, (req, res) => {
 // SAMPLE PROTECTED ROUTE!
 // protected route - a route only a user with a jwt token in their header can access.
 app.post('/settings', verifyToken, (req, res) => {
-  jwt.verify(req.token, 'debbie', (err, authData) => {
+  jwt.verify(req.token, process.env.JWTSECRET, (err, authData) => {
     if(err) {
       res.sendStatus(403);
     } else {
@@ -111,4 +112,5 @@ function verifyToken(req, res, next) {
 }
 
 
-app.listen( 3000, () => console.log("Listening on Port 3000"))
+app.listen(process.env.PORT || 3000)
+// app.listen( 3000, () => console.log("Listening on Port 3000"))

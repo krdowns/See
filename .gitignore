@@ -88,8 +88,8 @@ typings/
 *.mp4
 
 #Assets
-app\public\assets
+app/public/assets
 
 #Secret
-app/config/config.js
+app/config/secretKey
 # End of https://www.gitignore.io/api/node
