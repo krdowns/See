@@ -44,8 +44,8 @@ module.exports = {
     },
 
     update: (req,res) => {
-        var entryId = req.params.id;
-        var entry = req.body;
+        let entryId = req.params.id;
+        let entry = req.body;
         db.Entry.findByIdAndUpdate({_id: entryId}, entry, (err, updatedEntry) => {
             if (err) { 
                 return console.log(err);
@@ -55,7 +55,7 @@ module.exports = {
     },
 
     delete: (req, res) => {
-        var entryId = req.params.id;
+        let entryId = req.params.id;
         db.Entry.findByIdAndDelete({_id: entryId}, (err, deletedEntry) => {
             if (err) {
                 return console.log(err);

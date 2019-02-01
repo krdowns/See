@@ -36,44 +36,17 @@ app.get('/api/contacts', ctrl.contact.read);
 
 //Update
 app.put('/api/entries/:id', ctrl.entry.update);
-// app.put('/api/contacts/:id', (req,res)=> {
-//     if (req.jwt.userInfo!==undefined) {
-//       db.Contact.findOneAndUpdate(
-//         {'_id': req.jwt.userId},
-//         {'$set': req.body},
-//         {upsert: true},
-//       )
-//     } else {
-//       res.status(console.log(err))
-//     }
-// })
 
-app.put('/contacts/:id', function(req, res, next){
-  Contact.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
-    Contact.findOne({_id:req.params.id}).then(function(contact){
-      res.send(contact);
-    });
-  }).catch(next);
-  // res.send({type:'PUT'});
-});
 
-//Delete
+app.patch('/api/contacts/:id', ctrl.contact.update);
+
+//Delete Entry//
 app.delete('/api/entries/:id', ctrl.entry.delete);
-app.delete('/contacts/:id', (req, res) => {
-  let contactId = req.params.id;
 
-  db.Contact.deleteOne({
-      _id: contactId
-    },
-    (err, deletedId) => {
-      if (err) {
-        return console.log(err)
-      };
-      res.json(deletedId);
-    });
-});
+//Delete Contact//
+app.delete('/api/contacts/:id', ctrl.contact.delete);
 
-//Filter
+//Filter by Author
 app.get('/api/entries/:userId', ctrl.entry.filter);
 
 

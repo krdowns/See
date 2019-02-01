@@ -23,9 +23,11 @@ module.exports = {
     },
 
     update: (req,res) => {
+        console.log(req.body)
         var contactId = req.params.id;
-        var contact = req.body;
-        db.Contact.findByIdAndUpdate({_id: contactId}, contact, (err, updatedContact) => {
+        var email = req.body;
+        console.log(contactId);
+        db.Contact.findByIdAndUpdate({_id: contactId}, email, {new: true},(err, updatedContact) => {
             if (err) { 
                 return console.log(err);
             }
@@ -34,6 +36,7 @@ module.exports = {
     },
 
     delete: (req, res) => {
+        console.log("hello")
         var contactId = req.params.id;
         db.Contact.findByIdAndDelete({_id: contactId}, (err, deletedContact) => {
             if (err) {
