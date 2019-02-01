@@ -36,8 +36,6 @@ app.get('/api/contacts', ctrl.contact.read);
 
 //Update
 app.put('/api/entries/:id', ctrl.entry.update);
-
-
 app.patch('/api/contacts/:id', ctrl.contact.update);
 
 //Delete Entry//
@@ -46,8 +44,11 @@ app.delete('/api/entries/:id', ctrl.entry.delete);
 //Delete Contact//
 app.delete('/api/contacts/:id', ctrl.contact.delete);
 
-//Filter by Author
+//Filter Entry by Author
 app.get('/api/entries/:userId', ctrl.entry.filter);
+
+// Filter Contact by User
+app.get('/api/contacts/:userId', ctrl.contact.filter);
 
 
 

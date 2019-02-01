@@ -10,6 +10,7 @@ router.get('/history/:userId', controllers.user.getUserHistory)
 router.post('/signup', controllers.user.signup)
 router.post('/login', controllers.user.login)
 router.delete('/:userId', controllers.user.delete)
+router.get('/:userId/contacts', controllers.user.contacts)
 
 
 

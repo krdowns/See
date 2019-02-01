@@ -16,7 +16,8 @@
         },
 
         success: function(res) {
-            console.log(res)
+            window.location.reload();
+
         },
         
         error: function (err) {
@@ -28,17 +29,14 @@
   
 window.onload = function(e) {
     $.ajax({
-        url: '/api/contacts',
         method: 'GET',
+        url: '/user/'+localStorage.userID+'/contacts',
         success: handleSuccess,
         error: handleError
     });
 
     function handleSuccess(contacts) {
-        // console.log(contacts)
-        var count= 1;
         contacts.data.forEach(singleContact => {
-            // console.log(singleContact.email)
             $(".current-contacts-container").append(`
             <div class="contact-container">
                 <ul class="contact-list">
@@ -68,7 +66,6 @@ window.onload = function(e) {
                if ($text.trim()==$initProfileVal.trim()) return;
                var dataObj={}; dataObj["email"]= $text;
             });
-            count++;
         })
 
         // UPDATE CONTACT
@@ -83,10 +80,8 @@ window.onload = function(e) {
                 url: `/api/contacts/${id}`,
                 data: data,
                 contentType: "application/json",
-                success: function(json) {
-                    console.log(json.email);
+                success: function() {
                     window.location.reload();
-                    console.log(json);
                 },
                 'error': function(err1,err2,err3) { console.log(err1,err2,err3); }
             });
@@ -116,7 +111,7 @@ window.onload = function(e) {
 
     function handleError(e) {
         console.log('error', e);
-        $('.current-contacts-container').text('Failed to load.');
+        $('.current-contacts-container').text('No Contacts Available.');
     }; 
 
 

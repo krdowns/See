@@ -23,7 +23,6 @@ window.onload = function() {
             xhr.setRequestHeader("Authorization", 'Bearer '+ localStorage.token);
         }
       }).done(function (response) {
-        console.log(response)
         user = { email: response.email, _id: response._id }
         localStorage.userID = user._id;
       }).fail(function (err) {
@@ -59,7 +58,6 @@ window.onload = function() {
         console.log(e3);
       },
       success: function signupSuccess(json) {
-        console.log(json);
         localStorage.token = json.token;
         $('#signupForm').toggleClass('show');
         $('#noToken').toggleClass('show');
@@ -71,16 +69,12 @@ window.onload = function() {
 
   function submitLogin(e){
     e.preventDefault();
-    console.log("LOGIN FORM SUBMITTED")
     let userData = $(this).serialize()
-    console.log("LOGIN: ", userData)
     $.ajax({
       method: "POST",
       url: "/user/login",
       data: userData,
     }).done(function signupSuccess(json) {
-      console.log("LOG IN SUCCESSFUL")
-      console.log(json);
       localStorage.token = json.token;
       $('#noToken').toggleClass('show')
       $('#loginForm').toggleClass('show')

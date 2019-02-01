@@ -32,6 +32,15 @@ module.exports = {
       })
     },
 
+    contacts: (req, res) => {
+      console.log(req.params)
+      db.Contact.find({user: req.params.userId})
+      .exec(function(err, foundContacts){
+          if(err) return console.log(err);
+          res.json({'data': foundContacts});
+      })
+    },
+
     signup : (req, res) => {
         console.log(req.body);
         db.User.find({email: req.body.email})
@@ -151,70 +160,4 @@ module.exports = {
           })
         }) 
       },
-
-      // readEmailConfidant: (req, res) => {
-      //   db.User.findById(req.params.userId, (err, user) => {
-      //     if(err){
-      //       return res.status(500).json({err})
-      //     }
-      //     db.Email.find({})
-      //     .populate(
-      //         {
-      //             path: 'user',
-      //             match: {_id: user._id}
-      //         }
-      //     )
-      //     .exec((err, emails) => {
-      //         if(err) return console.log(err);
-      //         console.log(emails);
-      //         emails = emails.filter((email) => email.user)
-      //         res.render('/settings', {currentUser: user, emails: emails});
-      //     })
-      //   }) 
-      // },
-
-      // createEmailContact: (req, res) => {
-      //     console.log(req.body);
-      //     let newContact = req.body.contact
-      //     let newEmail = req.body.email;
-      //     db.Contact.create(newContact, (err, savedContact) => {
-      //       if (err) {
-      //         return console.log(err)
-      //       };
-      //       res.json(savedContact)
-      //       db.Email.create(newEmail, (err, savedEmail) => {
-      //         if (err) {
-      //           return console.log(err)
-      //         };
-      //         res.json(savedEmail);
-      //       });
-      //     })
-      //   },
-
-      updateEmailContact: (req,res) => {
-          let emailId = req.params.id;
-          let updatedBody = req.body;
-        
-          db.Email.findOneAndUpdate({
-              _id: emailId
-            },
-            updatedBody,
-            {
-              new: true
-            }, 
-            (err, updatedEmail) => {
-              if (err) {
-                return console.log(err)
-              };
-              res.json(updatedEmail);
-          });
-      },
-
-      deleteEmailContact: (req,res) => {
-        db.Email.deleteOne({_id: req.params.emailId}, (err, result) =>{
-          if(err){return res.status(500).json({err})}
-          res.status(200).json({result})
-        })
-      }
-      
 }

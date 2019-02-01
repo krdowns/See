@@ -51,13 +51,13 @@ module.exports = {
         .populate(
             {
                 path: 'user',
-                match: {_id: req.params.userId}
+                match: {id: req.params.userId}
             }
         )
         .exec((err, contacts) => {
             if(err) return console.log(err);
             console.log(contacts);
-            contacts = contacts.filter((contact) => contact.author)
+            contacts = contacts.filter((contact) => contact.user)
             res.json(contacts);
         })
     }
