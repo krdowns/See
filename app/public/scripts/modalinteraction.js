@@ -324,7 +324,6 @@ $(function() {
 
   // When the user clicks on the button, open the feedModal 
   btn.onclick = function() {
-    console.log('clicked')
   feedModal.style.display = "block";
   
   }

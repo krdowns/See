@@ -25,6 +25,7 @@ window.onload = function() {
       }).done(function (response) {
         user = { email: response.email, _id: response._id }
         localStorage.userID = user._id;
+        window.location.href = "./feed";
       }).fail(function (err) {
           console.log(err);
       });
@@ -62,6 +63,7 @@ window.onload = function() {
         $('#signupForm').toggleClass('show');
         $('#noToken').toggleClass('show');
         checkForLogin();
+        window.location.href = "./index";
       }
 
     })
@@ -79,6 +81,7 @@ window.onload = function() {
       $('#noToken').toggleClass('show')
       $('#loginForm').toggleClass('show')
       checkForLogin();
+      window.location.href = "./feed";
     }).fail(function signupError(e1,e2,e3) {
       console.log(e2);
     })
