@@ -15,13 +15,13 @@ app.use(passport.initialize());
 app.use(bodyParser.json())
 
 // HTML ENDPOINTS //
-app.get('/', (req, res) => {res.sendFile('views/index.html' , { root : __dirname});})
-app.get('/createentry', (req,res) => {res.sendFile('views/createentry.html' , { root : __dirname});})
-app.get('/emergency', (req,res) => {res.sendFile('views/emergency.html' , { root : __dirname});})
-app.get('/feed', (req, res) => {res.sendFile('views/feed.html' , { root : __dirname});})
-app.get('/history', (req,res) => {res.sendFile('views/history.html' , { root : __dirname});})
-app.get('/settings', (req, res) => {res.sendFile('views/settings.html' , { root : __dirname});})
-app.get('/signup', (req,res) => {res.sendFile('views/signup.html' , { root : __dirname});})
+app.get('./', (req, res) => {res.sendFile('views/index.html' , { root : __dirname});})
+app.get('./createentry', (req,res) => {res.sendFile('views/createentry.html' , { root : __dirname});})
+app.get('./emergency', (req,res) => {res.sendFile('views/emergency.html' , { root : __dirname});})
+app.get('./feed', (req, res) => {res.sendFile('views/feed.html' , { root : __dirname});})
+app.get('./history', (req,res) => {res.sendFile('views/history.html' , { root : __dirname});})
+app.get('./settings', (req, res) => {res.sendFile('views/settings.html' , { root : __dirname});})
+app.get('./signup', (req,res) => {res.sendFile('views/signup.html' , { root : __dirname});})
 
 app.use(express.static(__dirname + '/public'));
 
